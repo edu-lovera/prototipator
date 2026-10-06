@@ -10,3 +10,6 @@ Una línea por decisión: fecha, qué se decidió y por qué.
 - 06/10/2026 · Design system **Ready**, por el concepto de *AI readiness* que Edu quiere desarrollar.
 - 06/10/2026 · Dos marcas ficticias del mismo rubro y públicos opuestos, para mostrar el cambio de marca en vivo: **Brío** y **Ancla**.
 - 06/10/2026 · Grabación en Clarity, proyecto propio `Prototipator` (ID `ytjcq3higt`). Resultados en una hoja de Google propia, privada, en la carpeta Prototipator del Drive personal.
+- 06/10/2026 · Claude no borra archivos de Edu: lo que sobra va a `Prototipator/_para_borrar/` y lo borra Edu. Única excepción: los temporales internos de `.git` al hacer un commit.
+- 06/10/2026 · Las marcas cambian con `data-marca` en `<html>` y una capa Brand propia; la capa Mapped de Untitled UI queda intacta, así una actualización de Untitled no pisa las marcas.
+- 06/10/2026 · Los paquetes se instalan desde la Terminal de Edu (el entorno de Claude no llega a npm). Para abrir el proyecto: doble clic en `Abrir Prototipator.command`.

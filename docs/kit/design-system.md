@@ -4,11 +4,13 @@
 
 | | |
 |---|---|
-| Base de código | Untitled UI React, componentes gratis (MIT). Versión: se fija al instalar (07/10). |
+| Base de código | Untitled UI React, componentes gratis (MIT), instalados con `untitledui@0.1.69 init --vite` el 06/10/2026. Versiones exactas en `package.json` (React 19.3.0, React Aria Components 1.21.1, Tailwind 4.3.3, Vite 8.3.3). |
 | Biblioteca de Figma | Untitled UI Figma PRO duplicado y renombrado "Ready" (se arma el 08/10). |
 | Nombres de tokens | Los de Untitled UI tal cual (`text-primary`, `bg-brand-solid`, `border-secondary`, `fg-quaternary`…). |
 
 ## Capas
+
+Archivos: capa Brand en `src/styles/marcas.css`; capa Mapped en `src/styles/theme.css` (de Untitled UI, no se toca). La marca se elige con `data-marca` en `<html>` (`MarcaProvider`); el modo, con la clase `dark-mode` (`ThemeProvider`). Página de muestra: Fundamentos (`src/pages/fundamentos.tsx`).
 
 - **Brand**: la paleta de cada marca, `brand-50` a `brand-950`. En Figma, un modo por marca.
 - **Mapped**: tokens por uso (texto, fondo, borde, ícono), en claro y oscuro. Los componentes sólo leen esta capa.
