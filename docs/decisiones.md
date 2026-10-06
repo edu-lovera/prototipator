@@ -15,3 +15,4 @@ Una línea por decisión: fecha, qué se decidió y por qué.
 - 06/10/2026 · Los paquetes se instalan desde la Terminal de Edu (el entorno de Claude no llega a npm). Para abrir el proyecto: doble clic en `Abrir Prototipator.command`.
 - 06/10/2026 · Galería en `/` con registro de prototipos en `src/prototipos/registro.ts` (origen, estado, versión, fecha, variante A/B). Rutas con `#` (HashRouter) para que GitHub Pages no dé 404 al recargar.
 - 06/10/2026 · Publicación automática en GitHub Pages con GitHub Actions (`.github/workflows/publicar.yml`) en cada push a main.
+- 06/10/2026 · La arquitectura Brand → Mapped y el método de trabajo son de Edu y se pueden mostrar en charlas. Lo que sigue siendo de Gallo es el material concreto: archivos de Multi, productos, prototipos, resultados y personas.
