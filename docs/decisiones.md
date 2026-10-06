@@ -13,3 +13,5 @@ Una línea por decisión: fecha, qué se decidió y por qué.
 - 06/10/2026 · Claude no borra archivos de Edu: lo que sobra va a `Prototipator/_para_borrar/` y lo borra Edu. Única excepción: los temporales internos de `.git` al hacer un commit.
 - 06/10/2026 · Las marcas cambian con `data-marca` en `<html>` y una capa Brand propia; la capa Mapped de Untitled UI queda intacta, así una actualización de Untitled no pisa las marcas.
 - 06/10/2026 · Los paquetes se instalan desde la Terminal de Edu (el entorno de Claude no llega a npm). Para abrir el proyecto: doble clic en `Abrir Prototipator.command`.
+- 06/10/2026 · Galería en `/` con registro de prototipos en `src/prototipos/registro.ts` (origen, estado, versión, fecha, variante A/B). Rutas con `#` (HashRouter) para que GitHub Pages no dé 404 al recargar.
+- 06/10/2026 · Publicación automática en GitHub Pages con GitHub Actions (`.github/workflows/publicar.yml`) en cada push a main.

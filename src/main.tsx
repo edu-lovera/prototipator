@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
+import { Galeria } from "@/galeria/galeria";
 import { Fundamentos } from "@/pages/fundamentos";
 import { NotFound } from "@/pages/not-found";
 import { MarcaProvider } from "@/providers/marca-provider";
@@ -12,14 +13,15 @@ createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <ThemeProvider>
             <MarcaProvider>
-                <BrowserRouter>
+                <HashRouter>
                     <RouteProvider>
                         <Routes>
-                            <Route path="/" element={<Fundamentos />} />
+                            <Route path="/" element={<Galeria />} />
+                            <Route path="/fundamentos" element={<Fundamentos />} />
                             <Route path="*" element={<NotFound />} />
                         </Routes>
                     </RouteProvider>
-                </BrowserRouter>
+                </HashRouter>
             </MarcaProvider>
         </ThemeProvider>
     </StrictMode>,

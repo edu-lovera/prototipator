@@ -1,12 +1,12 @@
-import { ArrowRight, Moon01, Sun } from "@untitledui/icons";
+import { ArrowLeft, ArrowRight } from "@untitledui/icons";
+import { Link } from "react-router";
 import { Badge } from "@/components/base/badges/badges";
-import { ButtonGroup, ButtonGroupItem } from "@/components/base/button-group/button-group";
 import { Button } from "@/components/base/buttons/button";
 import { Checkbox } from "@/components/base/checkbox/checkbox";
 import { Input } from "@/components/base/input/input";
 import { Toggle } from "@/components/base/toggle/toggle";
-import { MARCAS, type Marca, useMarca } from "@/providers/marca-provider";
-import { useTheme } from "@/providers/theme-provider";
+import { SelectorMarcaModo } from "@/galeria/selector-marca-modo";
+import { type Marca, useMarca } from "@/providers/marca-provider";
 
 /*
  * Página de fundamentos del design system Ready.
@@ -87,10 +87,7 @@ const Seccion = ({ titulo, descripcion, children }: { titulo: string; descripcio
 );
 
 export const Fundamentos = () => {
-    const { marca, setMarca } = useMarca();
-    const { theme, setTheme } = useTheme();
-
-    const modoActual = theme === "system" ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : theme;
+    const { marca } = useMarca();
     const textos = TEXTOS[marca];
 
     return (
@@ -98,44 +95,13 @@ export const Fundamentos = () => {
             <header className="sticky top-0 z-10 border-b border-secondary bg-primary">
                 <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-8">
                     <div>
-                        <p className="text-sm font-semibold text-brand-secondary">Ready</p>
-                        <h1 className="font-display text-display-xs font-semibold text-primary">Fundamentos</h1>
+                        <Link to="/" className="flex items-center gap-1 text-sm font-semibold text-brand-secondary hover:text-brand-secondary_hover">
+                            <ArrowLeft className="size-4" /> Galería
+                        </Link>
+                        <h1 className="font-display text-display-xs font-semibold text-primary">Ready · Fundamentos</h1>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-3">
-                        <ButtonGroup
-                            aria-label="Marca"
-                            selectedKeys={[marca]}
-                            disallowEmptySelection
-                            onSelectionChange={(claves) => {
-                                const elegida = [...claves][0] as Marca | undefined;
-                                if (elegida) setMarca(elegida);
-                            }}
-                        >
-                            {MARCAS.map((m) => (
-                                <ButtonGroupItem key={m.id} id={m.id}>
-                                    {m.nombre}
-                                </ButtonGroupItem>
-                            ))}
-                        </ButtonGroup>
-
-                        <ButtonGroup
-                            aria-label="Modo"
-                            selectedKeys={[modoActual]}
-                            disallowEmptySelection
-                            onSelectionChange={(claves) => {
-                                const elegido = [...claves][0] as "light" | "dark" | undefined;
-                                if (elegido) setTheme(elegido);
-                            }}
-                        >
-                            <ButtonGroupItem id="light" iconLeading={Sun}>
-                                Claro
-                            </ButtonGroupItem>
-                            <ButtonGroupItem id="dark" iconLeading={Moon01}>
-                                Oscuro
-                            </ButtonGroupItem>
-                        </ButtonGroup>
-                    </div>
+                    <SelectorMarcaModo />
                 </div>
             </header>
 
