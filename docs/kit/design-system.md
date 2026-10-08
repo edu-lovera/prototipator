@@ -33,7 +33,7 @@ El color base es el único valor literal: se usa sólo para generar la escala Br
 
 ## En Figma
 
-Colección **0. Marca** con un modo por marca (Brío, Ancla, Boceto): escala `Brand/brand-50…950`, familias y pesos (`Typography/…`) y radios (`Radius/…`). Las variables del kit (`Colors/Brand/*`, `Font family/*`, `Font weight/*`, `radius-*`) apuntan a ella, así que se cambia de marca eligiendo el modo de **0. Marca** en un frame. Claro y oscuro siguen en **1. Color modes**. Muestra: página "Ready · Marcas".
+Colección **0. Marca** con un modo por marca (Brío, Ancla, Boceto): escala `Brand/brand-50…950`, familias y pesos (`Typography/…`) y radios (`Radius/…`). Las variables del kit (`Colors/Brand/*`, `Font family/*`, `Font weight/*`, `radius-*`) apuntan a ella, así que se cambia de marca eligiendo el modo de **0. Marca** en un frame. Claro y oscuro siguen en **1. Color modes**. Las sombras del modo claro también pasan por **0. Marca** (`Effects/…`), así Boceto no tiene sombras. Muestra en claro y oscuro: página "Ready · Marcas".
 
 - Boceto en Figma: Balsamiq Sans en títulos e Inter en texto; Medium pasa a Regular y Semibold a Bold, porque Balsamiq sólo tiene esos dos pesos.
 - Los radios de Figma no se llaman igual que las clases de Tailwind: se igualan por píxeles (Figma `radius-md` 8 px = Tailwind `rounded-lg`).
@@ -50,4 +50,4 @@ En Untitled UI, `bg` es lo que antes se llamaba surface y `fg` lo que se llamaba
 
 ## Buzón de piezas pendientes
 
-(vacío)
+- `ContenidoVisual` e `Imagen` (`src/ds-pendiente/contenido-visual.tsx`): envuelven fotos, ilustraciones y gráficos; en Boceto muestran un recuadro con cruz y etiqueta. No existe en Figma: falta crearla ahí. (08/10)

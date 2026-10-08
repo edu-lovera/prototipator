@@ -5,6 +5,7 @@ import { Button } from "@/components/base/buttons/button";
 import { Checkbox } from "@/components/base/checkbox/checkbox";
 import { Input } from "@/components/base/input/input";
 import { Toggle } from "@/components/base/toggle/toggle";
+import { ContenidoVisual } from "@/ds-pendiente/contenido-visual";
 import { SelectorMarcaModo } from "@/galeria/selector-marca-modo";
 import { type Marca, useMarca } from "@/providers/marca-provider";
 
@@ -81,6 +82,9 @@ const TEXTOS: Record<Marca, { saludo: string; bajada: string; accion: string }> 
     },
 };
 
+// Rendimiento mensual ficticio, sólo para dibujar el gráfico de muestra.
+const RENDIMIENTO = [38, 52, 45, 61, 57, 70, 66, 78];
+
 const Seccion = ({ titulo, descripcion, children }: { titulo: string; descripcion?: string; children: React.ReactNode }) => (
     <section className="flex flex-col gap-5 border-t border-secondary pt-8">
         <div>
@@ -122,7 +126,7 @@ export const Fundamentos = () => {
                     </div>
                 </div>
 
-                <Seccion titulo="Capa Brand" descripcion="La paleta de cada marca. Es lo único que cambia entre Brío y Ancla; nadie la usa directo.">
+                <Seccion titulo="Capa Brand" descripcion="La paleta de cada marca. Es lo único que cambia entre marcas; nadie la usa directo.">
                     <div className="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-11">
                         {ESCALA_BRAND.map((c) => (
                             <div key={c.paso} className="flex flex-col gap-1.5">
@@ -201,6 +205,19 @@ export const Fundamentos = () => {
                         <Checkbox label="Acepto el perfil de riesgo" defaultSelected />
                         <Toggle label="Avisarme cuando cambie el precio" defaultSelected />
                     </div>
+                </Seccion>
+
+                <Seccion
+                    titulo="Contenido visual"
+                    descripcion="Fotos, ilustraciones y gráficos. En Boceto se reemplazan por un recuadro con una cruz, para que la prueba se centre en la interacción."
+                >
+                    <ContenidoVisual etiqueta="Gráfico de rendimiento" className="h-40 max-w-md">
+                        <div className="flex h-full items-end gap-2 rounded-lg border border-secondary p-4">
+                            {RENDIMIENTO.map((alto, i) => (
+                                <div key={i} className="flex-1 rounded-t-sm bg-brand-solid" style={{ height: `${alto}%` }} />
+                            ))}
+                        </div>
+                    </ContenidoVisual>
                 </Seccion>
             </main>
         </div>

@@ -3,9 +3,10 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
 
-// En GitHub Pages la galería vive en /prototypator/; en la compu, en la raíz.
-export default defineConfig(({ command }) => ({
-    base: command === "build" ? "/prototypator/" : "/",
+// Rutas relativas: la galería anda igual en edu-lovera.github.io/prototypator/, en prototypator.com y en la compu.
+// Funciona porque las pantallas van después de "#" (HashRouter).
+export default defineConfig(() => ({
+    base: "./",
     plugins: [react(), tailwindcss()],
     resolve: {
         alias: {
