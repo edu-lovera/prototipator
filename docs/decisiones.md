@@ -23,3 +23,5 @@ Una línea por decisión: fecha, qué se decidió y por qué.
 - 08/10/2026 · Dominio prototypator.com registrado por un año.
 - 08/10/2026 · En Figma, las marcas viven en una colección propia **0. Marca** (un modo por marca) y las variables del kit apuntan a ella: un solo selector cambia color, tipografía y radios, igual que `data-marca` en el código.
 - 08/10/2026 · La galería se arma con rutas relativas (`base: "./"`), así anda igual en github.io, en prototypator.com y en la compu sin tocar el código al cambiar de dirección.
+- 08/10/2026 · Dos conceptos a desarrollar: **Prototypator** (workflow de prototipado con pruebas, para servicios y quizás producto) y **Ready** (design system propio "AI ready", sin depender de la propiedad intelectual de terceros). El Ready actual sobre Untitled UI es un primer paso para la demo.
+- 08/10/2026 · ready-ds.com en evaluación (estaba libre el 08/10). El dominio de la galería se configura cuando exista la marca gráfica.

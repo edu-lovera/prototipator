@@ -2,7 +2,7 @@
 
 ## General
 
-- Apuntar prototypator.com a la galería: registros en Namecheap y dominio en GitHub Pages (pasos en el chat del 08/10). · Edu
+- Marca gráfica de Prototypator (logo, ícono de pestaña provisorio en `public/favicon.svg`). Después, apuntar prototypator.com a la galería (pasos en el chat del 08/10). · Edu
 - Actualizar las instrucciones del proyecto: sacar "Estado actual", poner el nombre Prototypator y cambiar la sección de confidencialidad (ver decisiones del 06/10 y 08/10). · Edu
 - Vaciar `Prototypator/_para_borrar/`. · Edu
 - Abrir la galería publicada desde el celular para confirmar que anda. · Edu
