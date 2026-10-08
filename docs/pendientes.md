@@ -2,7 +2,6 @@
 
 ## General
 
-- Renombrar el archivo de Figma a "Ready" y publicarlo como biblioteca. · Edu
 - Boceto en Figma todavía tiene sombras (están en 1. Color modes, no en 0. Marca). · Claude
 - Revisar Ready en Figma en modo oscuro con las tres marcas. · Claude
 - Actualizar las instrucciones del proyecto: sacar "Estado actual" (el repo ya existe) y cambiar la sección de confidencialidad (ver decisiones del 06/10). · Edu

@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Base de código | Untitled UI React, componentes gratis (MIT), instalados con `untitledui@0.1.69 init --vite` el 06/10/2026. Versiones exactas en `package.json` (React 19.3.0, React Aria Components 1.21.1, Tailwind 4.3.3, Vite 8.3.3). |
-| Biblioteca de Figma | Untitled UI Figma PRO VARIABLES v8.0, copia en la cuenta de Edu: https://www.figma.com/design/Ue3QCW2RKfkTfYluDNRPOW (falta renombrarla "Ready" y publicarla). |
+| Biblioteca de Figma | Untitled UI Figma PRO VARIABLES v8.0, copia en la cuenta de Edu, publicada como biblioteca **Ready Design System**: https://www.figma.com/design/Ue3QCW2RKfkTfYluDNRPOW |
 | Nombres de tokens | Los de Untitled UI tal cual (`text-primary`, `bg-brand-solid`, `border-secondary`, `fg-quaternary`…). |
 
 ## Capas
