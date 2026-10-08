@@ -17,13 +17,17 @@ Archivos: capa Brand en `src/styles/marcas.css`; capa Mapped en `src/styles/them
 
 ## Marcas ficticias
 
-| | Brío | Ancla |
-|---|---|---|
-| Qué es | App de inversión para gente joven que empieza | Banca de inversión sobria, carteras grandes |
-| Color base de la escala | Violeta `#6D4AFF` | Azul profundo `#1F3A5F` |
-| Tipografía | Plus Jakarta Sans | Source Serif 4 (títulos) + Inter (texto) |
-| Radios | Muy redondeados (botón píldora, tarjeta 16 px) | Casi rectos (4 px) |
-| Tono | Cercano, tutea | Formal, de usted |
+| | Brío | Ancla | Boceto |
+|---|---|---|---|
+| Qué es | App de inversión para gente joven que empieza | Banca de inversión sobria, carteras grandes | Baja fidelidad, para cuando todavía no hay decisiones visuales |
+| Color base de la escala | Violeta `#6D4AFF` | Azul profundo `#1F3A5F` | Grises: la escala neutra de Untitled UI, sin valores literales |
+| Tipografía | Plus Jakarta Sans | Source Serif 4 (títulos) + Inter (texto) | Balsamiq Sans (títulos) + tipografía del sistema (texto) |
+| Radios | Muy redondeados (botón píldora, tarjeta 16 px) | Casi rectos (4 px) | Un mismo radio para todo (4 px) |
+| Sombras | Las de Untitled UI | Las de Untitled UI | Ninguna |
+| Tono | Cercano, tutea | Formal, de usted | El del producto que se prueba |
+
+Boceto conserva los colores de estado (error, éxito, aviso) porque son parte de la interacción.
+Las fotos, ilustraciones y gráficos no cambian solos: hace falta una pieza que en Boceto muestre un recuadro con una cruz.
 
 El color base es el único valor literal: se usa sólo para generar la escala Brand.
 

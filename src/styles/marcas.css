@@ -65,3 +65,48 @@
     --radius-xl: 0.25rem;
     --radius-2xl: 0.25rem;
 }
+
+/*
+ * Boceto: baja fidelidad, para prototipar cuando todavía no hay decisiones
+ * visuales. Así la gente opina sobre la interacción y no sobre la estética.
+ * Escala de marca en grises (sale de los neutros de Untitled UI, sin colores
+ * escritos a mano), un mismo radio para todo y sin sombras. Los colores de
+ * estado (error, éxito, aviso) se mantienen porque son parte de la interacción.
+ */
+:root[data-marca="boceto"] {
+    --color-brand-50: var(--color-neutral-50);
+    --color-brand-100: var(--color-neutral-100);
+    --color-brand-200: var(--color-neutral-200);
+    --color-brand-300: var(--color-neutral-300);
+    --color-brand-400: var(--color-neutral-400);
+    --color-brand-500: var(--color-neutral-500);
+    --color-brand-600: var(--color-neutral-600);
+    --color-brand-700: var(--color-neutral-700);
+    --color-brand-800: var(--color-neutral-800);
+    --color-brand-900: var(--color-neutral-900);
+    --color-brand-950: var(--color-neutral-950);
+
+    /* Títulos con letra de boceto; texto con la tipografía del sistema */
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-display: "Balsamiq Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+    /* Un mismo radio para todo */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.25rem;
+    --radius-lg: 0.25rem;
+    --radius-xl: 0.25rem;
+    --radius-2xl: 0.25rem;
+}
+
+/*
+ * Boceto sin sombras ni relieves. Tailwind escribe cada sombra dentro de la
+ * clase, así que no alcanza con cambiar las variables de sombra: se vuelve
+ * transparente su color. Los bordes hechos con "ring" no se tocan.
+ */
+:root[data-marca="boceto"] *,
+:root[data-marca="boceto"] *::before,
+:root[data-marca="boceto"] *::after {
+    --tw-shadow-color: transparent;
+    --tw-inset-shadow-color: transparent;
+    --tw-drop-shadow-color: transparent;
+}

@@ -6,7 +6,7 @@ import { useTheme } from "@/providers/theme-provider";
 // Marca más visible la opción elegida (en Untitled UI el cambio es muy sutil).
 const ELEGIDO = "selected:bg-brand-primary selected:text-brand-secondary";
 
-/** Selector de marca (Brío / Ancla) y de modo (claro / oscuro). Se usa en la galería y en los prototipos. */
+/** Selector de marca (Brío / Ancla / Boceto) y de modo (claro / oscuro). Se usa en la galería y en los prototipos. */
 export const SelectorMarcaModo = () => {
     const { marca, setMarca } = useMarca();
     const { theme, setTheme } = useTheme();

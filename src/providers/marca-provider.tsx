@@ -5,6 +5,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 export const MARCAS = [
     { id: "brio", nombre: "Brío" },
     { id: "ancla", nombre: "Ancla" },
+    { id: "boceto", nombre: "Boceto" },
 ] as const;
 
 export type Marca = (typeof MARCAS)[number]["id"];
