@@ -20,3 +20,5 @@ Una línea por decisión: fecha, qué se decidió y por qué.
 - 08/10/2026 · Tercera marca **Boceto** (baja fidelidad): grises, un solo radio, sin sombras. Para probar interacción cuando todavía no hay decisiones visuales, sin que el feedback se vaya a la estética.
 - 08/10/2026 · Comprado Untitled UI Figma PRO SOLO (trae LITE, STYLES y VARIABLES); se trabaja sobre PRO VARIABLES. Los recursos PRO (íconos, logos, avatares, gradientes) quedan en `Prototypator/Additional assets – Untitled UI/`, fuera del repo: la licencia no permite publicarlos.
 - 08/10/2026 · Nombre cambiado a **Prototypator** (con y): suena igual en castellano y en inglés y es más universal. Repo `edu-lovera/prototypator`, galería en `edu-lovera.github.io/prototypator/`; la dirección vieja deja de andar.
+- 08/10/2026 · Dominio prototypator.com registrado por un año.
+- 08/10/2026 · En Figma, las marcas viven en una colección propia **0. Marca** (un modo por marca) y las variables del kit apuntan a ella: un solo selector cambia color, tipografía y radios, igual que `data-marca` en el código.
