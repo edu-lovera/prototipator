@@ -62,7 +62,7 @@ const ESCALA_TIPOGRAFICA = [
     { nombre: "text-sm", clase: "text-sm" },
 ];
 
-// Cada marca tiene su tono: Brío tutea, Ancla trata de usted.
+// Cada marca tiene su tono: Brío tutea, Ancla trata de usted, Boceto usa textos de wireframe.
 const TEXTOS: Record<Marca, { saludo: string; bajada: string; accion: string }> = {
     brio: {
         saludo: "Hola, empezá a invertir hoy",
@@ -73,6 +73,11 @@ const TEXTOS: Record<Marca, { saludo: string; bajada: string; accion: string }> 
         saludo: "Su patrimonio, administrado con criterio",
         bajada: "Consulte el estado de sus carteras y los informes de su asesor.",
         accion: "Ingresar",
+    },
+    boceto: {
+        saludo: "Título de la pantalla",
+        bajada: "Texto de apoyo que explica qué puede hacer la persona acá.",
+        accion: "Acción principal",
     },
 };
 
