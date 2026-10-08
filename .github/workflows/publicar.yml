@@ -1,5 +1,5 @@
 # Publica la galería en GitHub Pages cada vez que se sube algo a main.
-# Dirección: https://edu-lovera.github.io/prototipator/
+# Dirección: https://edu-lovera.github.io/prototypator/
 name: Publicar galería
 
 on:

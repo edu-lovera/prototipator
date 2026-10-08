@@ -1,8 +1,8 @@
-# Prototipator
+# Prototypator
 
 Workflow de prototipado con IA: de la pregunta de investigación a la especificación validada.
 
-**Galería:** https://edu-lovera.github.io/prototipator/
+**Galería:** https://edu-lovera.github.io/prototypator/
 
 - Prototipos en código hechos con **Ready**, un design system sobre [Untitled UI](https://www.untitledui.com/), con dos marcas ficticias: Brío y Ancla.
 - Escenarios con datos realistas, sin datos privados ni dinero real.

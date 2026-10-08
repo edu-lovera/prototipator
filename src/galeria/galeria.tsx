@@ -6,7 +6,7 @@ import { SelectorMarcaModo } from "@/galeria/selector-marca-modo";
 import { ESTADOS, ORIGENES, PROTOTIPOS, type Prototipo } from "@/prototipos/registro";
 
 /*
- * Galería de prototipos de Prototipator.
+ * Galería de prototipos de Prototypator.
  * Arriba, el design system activo; abajo, los prototipos del registro.
  */
 
@@ -49,7 +49,7 @@ export const Galeria = () => {
             <header className="border-b border-secondary">
                 <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-5 md:px-8">
                     <div>
-                        <h1 className="font-display text-display-xs font-semibold text-primary">Prototipator</h1>
+                        <h1 className="font-display text-display-xs font-semibold text-primary">Prototypator</h1>
                         <p className="text-sm text-tertiary">De la pregunta de investigación a la especificación validada.</p>
                     </div>
                     <SelectorMarcaModo />
