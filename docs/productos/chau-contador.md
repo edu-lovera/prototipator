@@ -20,3 +20,7 @@ Producto ficticio para la demo: ayuda a monotributistas con tareas simples sin p
 ## Casos de uso (09/10/2026)
 
 `?escenario=lejos` (55 %), `limite` (92 %, el de siempre) y `pasada` (108 %): la misma Lucía en la D; los montos del escenario base se escalan y se redondean a miles (`escenarioPara` en `datos.ts`). En la B, el aviso aparece desde el 80 % y en rojo cuando ya pasó el tope, y la métrica de margen pasa a "Por encima del tope". Las dos versiones son un solo prototipo en el registro (versión 0.2.0).
+
+## Logo (09/10/2026)
+
+En Figma: `Logo symbol` (la mano, un vector, `fg-white`) y `Logo` (cuadrado `bg-brand-solid` + nombre, propiedad "Show wordmark"), en la página "Logo" de Componentes locales, ya usados en el menú de las tres pantallas. En código: `componentes/logo.tsx` (`LogoSymbol`, `Logo`), mismo dibujo.

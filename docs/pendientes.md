@@ -20,7 +20,7 @@
 ## Chau Contador
 
 - Versión A en Figma (en código está desde el 09/10). · Claude
-- Logo en Figma: subir `Logo` a "Chau Contador · Componentes locales" y usarlo en el menú (hoy muestra el de Untitled). A 16 px las ondas molestan: evaluar una versión sin ondas para el ícono de pestaña. · Claude
+- Logo: Edu lo va a retocar en Figma (`Logo symbol`, vector editable) y pasar el SVG para el código. A 16 px las ondas molestan: evaluar una versión sin ondas para el ícono de pestaña. · Edu + Claude
 - Capa de pruebas con la barra móvil acordada el 09/10 (plegada muestra tarea, Listo y No pude; No pude confirma; Listo se puede deshacer unos segundos) y registro del dispositivo. · Claude
 - Pasar a Figma de Ready lo que falta del contraste: sacar las sombras internas del botón secundario, separar borde de tarjeta y de divisor. · Edu + Claude
 
