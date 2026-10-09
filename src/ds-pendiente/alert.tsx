@@ -22,7 +22,10 @@ interface AlertProps {
 }
 
 export const Alert = ({ color = "gray", title, description, icon = AlertCircle, actions, onClose, className }: AlertProps) => (
-    <div role="status" className={cx("relative flex flex-col gap-3 rounded-xl bg-primary_alt p-4 shadow-xs ring-1 ring-primary ring-inset md:flex-row md:gap-4", className)}>
+    <div
+        role="status"
+        className={cx("relative flex flex-col gap-3 rounded-xl bg-primary_alt p-4 shadow-xs ring-1 ring-primary ring-inset md:flex-row md:gap-4", className)}
+    >
         <FeaturedIcon icon={icon} color={color} theme="outline" size="md" />
         <div className="flex flex-1 flex-col gap-3 pr-8">
             <div className="flex flex-col gap-1">

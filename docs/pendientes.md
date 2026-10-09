@@ -19,7 +19,7 @@
 
 ## Chau Contador
 
-- Versión A (tabla de categorías como la muestra ARCA), en Figma y en código. · Claude
+- Versión A en Figma (en código está desde el 09/10). · Claude
 - Escenarios "lejos del tope" (55 %) y "pasada" (108 %) además de "al límite" (92 %). · Claude
 - Logo provisorio en Figma (en código hay uno de texto). · Edu + Claude
 - Capa de pruebas con la barra móvil acordada el 09/10 (plegada muestra tarea, Listo y No pude; No pude confirma; Listo se puede deshacer unos segundos) y registro del dispositivo. · Claude

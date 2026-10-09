@@ -10,3 +10,9 @@ Producto ficticio para la demo: ayuda a monotributistas con tareas simples sin p
 - Ruta: `#/p/chau-contador-mi-categoria`. Escenario: Lucía Ferreyra, servicios, categoría D, 92 % del tope.
 - Tareas previstas: 1) ¿en qué categoría vas a quedar en febrero?; 2) si facturás $ 3.000.000 en noviembre, ¿cuánto pagarías?; 3) ¿cuánto podés facturar sin cambiar de categoría? Se mide acierto, tiempo y dificultad (1 a 7).
 - El simulador suma el monto a lo facturado en 12 meses y busca la categoría (simplificación: no descuenta lo que sale de la ventana de 12 meses).
+
+## Mi categoría · versión A (0.1.0, 09/10/2026)
+
+- Ruta: `#/p/chau-contador-mi-categoria-a`. Referencia de la comparación: la tabla de categorías como la da el sitio oficial, con la actual marcada. Sin aviso, sin barra de margen, sin simulador y sin la métrica de margen. Mismo escenario y mismas facturas que la B.
+- Lo común a las dos versiones (menú, contenedor, facturas) está en `compartido.tsx`.
+- Falta en Figma.

@@ -49,4 +49,14 @@ export const PROTOTIPOS: Prototipo[] = [
         actualizado: "2026-10-09",
         figma: "https://www.figma.com/design/ViNzzQOTZMFqYHyWZbDbE0?node-id=4-47299",
     },
+    {
+        id: "chau-contador-mi-categoria-a",
+        nombre: "Chau Contador · Mi categoría (A)",
+        descripcion: "La misma pantalla con la información como la da el sitio oficial: tabla de categorías con la tuya marcada. Referencia de la comparación.",
+        origen: "pregunta",
+        estado: "borrador",
+        version: "0.1.0",
+        actualizado: "2026-10-09",
+        varianteDe: "chau-contador-mi-categoria",
+    },
 ];
