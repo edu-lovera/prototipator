@@ -1,49 +1,69 @@
-import { ArrowRight, LayersThree01, Plus } from "@untitledui/icons";
+import { useState } from "react";
+import { ArrowRight, ChevronRight, LayersThree01, Plus } from "@untitledui/icons";
 import { Link } from "react-router";
 import { EmptyState } from "@/components/application/empty-state/empty-state";
 import { Badge } from "@/components/base/badges/badges";
+import { Toggle } from "@/components/base/toggle/toggle";
+import { PanelDetalle, formatearFecha } from "@/galeria/panel-detalle";
 import { SelectorMarcaModo } from "@/galeria/selector-marca-modo";
-import { ESTADOS, ORIGENES, PROTOTIPOS, type Prototipo } from "@/prototipos/registro";
+import { ESTADOS, ORIGENES, PROTOTIPOS, type Prototipo, direccion } from "@/prototipos/registro";
+import { cx } from "@/utils/cx";
 
 /*
  * Galería de prototipos de Prototypator.
  * Arriba, el design system activo; abajo, los prototipos del registro.
  */
 
-const formatearFecha = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString("es-AR", { day: "numeric", month: "short", year: "numeric" });
-
-const TarjetaPrototipo = ({ prototipo }: { prototipo: Prototipo }) => {
+const TarjetaPrototipo = ({ prototipo, onDetalle }: { prototipo: Prototipo; onDetalle: () => void }) => {
     const estado = ESTADOS[prototipo.estado];
+    const principal = prototipo.versiones.find((v) => v.rol === "elegida") ?? prototipo.versiones[0];
+    const archivado = prototipo.estado === "archivado";
     return (
-        <Link
-            to={`/p/${prototipo.id}`}
-            className="group flex flex-col gap-3 rounded-xl border border-secondary bg-primary p-5 outline-brand transition hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-2"
-        >
-            <div className="flex flex-wrap items-center gap-2">
-                <Badge type="pill-color" color={estado.color} size="sm">
+        <article className={cx("flex flex-col rounded-xl border border-secondary bg-primary transition hover:border-brand", archivado && "opacity-70")}>
+            <a
+                href={direccion(principal.ruta)}
+                target="_blank"
+                rel="noreferrer"
+                className="flex flex-1 flex-col gap-3 rounded-t-xl p-5 outline-brand focus-visible:outline-2 focus-visible:outline-offset-2"
+            >
+                <Badge type="pill-color" color={estado.color} size="sm" className="w-max">
                     {estado.nombre}
                 </Badge>
-                <Badge type="color" color="gray" size="sm">
-                    {ORIGENES[prototipo.origen]}
-                </Badge>
-                {prototipo.varianteDe && (
-                    <Badge type="color" color="gray" size="sm">
-                        Variante A/B
-                    </Badge>
+                <div>
+                    <h3 className="font-display text-lg font-semibold text-primary">{prototipo.nombre}</h3>
+                    <p className="mt-1 line-clamp-2 text-sm text-tertiary">{prototipo.resumen}</p>
+                </div>
+                <p className="mt-auto text-xs text-tertiary">
+                    {prototipo.producto} · {ORIGENES[prototipo.origen]}
+                    {prototipo.versiones.length > 1 && ` · Versiones ${prototipo.versiones.map((v) => v.variante).join(", ")}`}
+                </p>
+                {prototipo.entregado && prototipo.estado === "exploracion" && (
+                    <p className="text-xs text-warning-primary">Se entregó el {formatearFecha(prototipo.entregado)} y volvió a moverse.</p>
                 )}
-            </div>
-            <div>
-                <h3 className="font-display text-lg font-semibold text-primary">{prototipo.nombre}</h3>
-                <p className="mt-1 line-clamp-2 text-sm text-tertiary">{prototipo.descripcion}</p>
-            </div>
-            <p className="mt-auto text-xs text-quaternary">
-                v{prototipo.version} · {formatearFecha(prototipo.actualizado)}
-            </p>
-        </Link>
+            </a>
+            <button
+                type="button"
+                onClick={onDetalle}
+                className="flex items-center justify-between gap-2 rounded-b-xl border-t border-secondary px-5 py-3 text-left text-xs text-tertiary outline-brand hover:bg-primary_hover focus-visible:outline-2 focus-visible:outline-offset-2"
+            >
+                <span>
+                    v{prototipo.version} · {formatearFecha(prototipo.actualizado)}
+                </span>
+                <span className="flex items-center gap-1 font-semibold text-brand-secondary">
+                    Ver detalle <ChevronRight className="size-4" />
+                </span>
+            </button>
+        </article>
     );
 };
 
 export const Galeria = () => {
+    const [detalle, setDetalle] = useState<Prototipo | null>(null);
+    const [verArchivados, setVerArchivados] = useState(false);
+    const archivados = PROTOTIPOS.filter((p) => p.estado === "archivado").length;
+    const visibles = PROTOTIPOS.filter((p) => verArchivados || p.estado !== "archivado").sort(
+        (a, b) => Number(a.estado === "archivado") - Number(b.estado === "archivado"),
+    );
     return (
         <div className="min-h-dvh bg-primary">
             <header className="border-b border-secondary">
@@ -69,7 +89,7 @@ export const Galeria = () => {
                             </div>
                             <div>
                                 <p className="font-semibold text-primary">Ready · Fundamentos</p>
-                                <p className="text-sm text-tertiary">Capas de color, tipografía y componentes de Brío y Ancla.</p>
+                                <p className="text-sm text-tertiary">Capas de color, tipografía y componentes de Brío, Ancla y Boceto.</p>
                             </div>
                         </div>
                         <ArrowRight className="size-5 shrink-0 text-fg-brand-primary transition group-hover:translate-x-0.5" />
@@ -77,7 +97,12 @@ export const Galeria = () => {
                 </section>
 
                 <section className="flex flex-col gap-4">
-                    <h2 className="font-display text-lg font-semibold text-primary">Prototipos</h2>
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                        <h2 className="font-display text-lg font-semibold text-primary">Prototipos</h2>
+                        {archivados > 0 && (
+                            <Toggle size="sm" label={`Mostrar archivados (${archivados})`} isSelected={verArchivados} onChange={setVerArchivados} />
+                        )}
+                    </div>
                     {PROTOTIPOS.length === 0 ? (
                         <div className="rounded-xl border border-dashed border-primary py-12">
                             <EmptyState size="md">
@@ -94,13 +119,15 @@ export const Galeria = () => {
                         </div>
                     ) : (
                         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                            {PROTOTIPOS.map((p) => (
-                                <TarjetaPrototipo key={p.id} prototipo={p} />
+                            {visibles.map((p) => (
+                                <TarjetaPrototipo key={p.id} prototipo={p} onDetalle={() => setDetalle(p)} />
                             ))}
                         </div>
                     )}
                 </section>
             </main>
+
+            <PanelDetalle prototipo={detalle} isOpen={detalle !== null} onOpenChange={(abierto) => !abierto && setDetalle(null)} />
 
             <footer className="mx-auto max-w-5xl px-4 pb-10 text-xs text-quaternary md:px-8">
                 Prototipos para investigación. Sin datos privados ni dinero real.

@@ -5,8 +5,9 @@ import { ProgressBar } from "@/components/base/progress-indicators/progress-indi
 import { Alert } from "@/ds-pendiente/alert";
 import { MetricItem } from "@/ds-pendiente/metric-item";
 import { PageHeader } from "@/ds-pendiente/page-header";
+import { useParametro } from "@/prototipos/parametros";
 import { MarcoChauContador, SeccionFacturas } from "./compartido";
-import { ESCENARIO, categoria, categoriaPara, fecha, pesos } from "./datos";
+import { categoria, categoriaPara, escenarioPara, fecha, pesos } from "./datos";
 
 /*
  * Chau Contador · Mi categoría · versión B (barra de margen + simulador).
@@ -19,12 +20,15 @@ import { ESCENARIO, categoria, categoriaPara, fecha, pesos } from "./datos";
 const RUTA = "/p/chau-contador-mi-categoria";
 
 export const MiCategoria = () => {
+    const ESCENARIO = escenarioPara(useParametro("escenario"));
     const facturas = ESCENARIO.facturas;
     const facturado = facturas.reduce((s, f) => s + f.monto, 0);
     const actual = categoria(ESCENARIO.categoriaActual);
     const siguiente = categoria(String.fromCharCode(actual.letra.charCodeAt(0) + 1));
     const margen = actual.tope - facturado;
     const porcentaje = (facturado / actual.tope) * 100;
+    const pasada = margen < 0;
+    const destino = (pasada ? categoriaPara(facturado) : null) ?? siguiente;
 
     const [mostrarAviso, setMostrarAviso] = useState(true);
     const [monto, setMonto] = useState("");
@@ -70,11 +74,19 @@ export const MiCategoria = () => {
                 }
             />
 
-            {mostrarAviso && (
+            {mostrarAviso && porcentaje >= 80 && (
                 <Alert
-                    color="warning"
-                    title={`Estás al ${Math.round(porcentaje)} % del tope de la categoría ${actual.letra}`}
-                    description={`Si en los próximos meses facturás más de ${pesos(margen)}, en la recategorización de febrero pasás a la categoría ${siguiente.letra} y la cuota sube de ${pesos(actual.cuotaServicios)} a ${pesos(siguiente.cuotaServicios)} por mes.`}
+                    color={pasada ? "error" : "warning"}
+                    title={
+                        pasada
+                            ? `Superaste el tope de la categoría ${actual.letra}`
+                            : `Estás al ${Math.round(porcentaje)} % del tope de la categoría ${actual.letra}`
+                    }
+                    description={
+                        pasada
+                            ? `Facturaste ${pesos(-margen)} más que el tope. Si sigue así, en la recategorización de febrero pasás a la categoría ${destino.letra} y la cuota sube de ${pesos(actual.cuotaServicios)} a ${pesos(destino.cuotaServicios)} por mes.`
+                            : `Si en los próximos meses facturás más de ${pesos(margen)}, en la recategorización de febrero pasás a la categoría ${siguiente.letra} y la cuota sube de ${pesos(actual.cuotaServicios)} a ${pesos(siguiente.cuotaServicios)} por mes.`
+                    }
                     onClose={() => setMostrarAviso(false)}
                     actions={
                         <>
@@ -98,7 +110,10 @@ export const MiCategoria = () => {
 
             <div className="grid gap-3 md:grid-cols-3 md:gap-6">
                 <MetricItem title="Facturado en los últimos 12 meses" value={pesos(facturado)} />
-                <MetricItem title={`Margen hasta el tope de la ${actual.letra}`} value={pesos(margen)} />
+                <MetricItem
+                    title={pasada ? `Por encima del tope de la ${actual.letra}` : `Margen hasta el tope de la ${actual.letra}`}
+                    value={pesos(Math.abs(margen))}
+                />
                 <MetricItem title="Cuota mensual actual" value={pesos(actual.cuotaServicios)} />
             </div>
 
@@ -115,7 +130,7 @@ export const MiCategoria = () => {
                     </p>
                 </div>
                 <div className="flex flex-col gap-2">
-                    <ProgressBar value={porcentaje} labelPosition="right" valueFormatter={(_, p) => `${Math.round(p)} %`} />
+                    <ProgressBar value={Math.min(porcentaje, 100)} labelPosition="right" valueFormatter={() => `${Math.round(porcentaje)} %`} />
                     <div className="flex justify-between gap-2 text-sm text-tertiary max-md:hidden">
                         <span>{pesos(0)}</span>
                         <span>Facturado: {pesos(facturado)}</span>

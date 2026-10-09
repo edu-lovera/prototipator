@@ -16,3 +16,7 @@ Producto ficticio para la demo: ayuda a monotributistas con tareas simples sin p
 - Ruta: `#/p/chau-contador-mi-categoria-a`. Referencia de la comparación: la tabla de categorías como la da el sitio oficial, con la actual marcada. Sin aviso, sin barra de margen, sin simulador y sin la métrica de margen. Mismo escenario y mismas facturas que la B.
 - Lo común a las dos versiones (menú, contenedor, facturas) está en `compartido.tsx`.
 - Falta en Figma.
+
+## Casos de uso (09/10/2026)
+
+`?escenario=lejos` (55 %), `limite` (92 %, el de siempre) y `pasada` (108 %): la misma Lucía en la D; los montos del escenario base se escalan y se redondean a miles (`escenarioPara` en `datos.ts`). En la B, el aviso aparece desde el 80 % y en rojo cuando ya pasó el tope, y la métrica de margen pasa a "Por encima del tope". Las dos versiones son un solo prototipo en el registro (versión 0.2.0).

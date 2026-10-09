@@ -35,7 +35,7 @@ export interface Factura {
     monto: number;
 }
 
-/** Escenario "al límite": Lucía, diseñadora freelance, categoría D, al 92 % del tope. */
+/** Escenario base "al límite": Lucía, diseñadora freelance, categoría D, al 92 % del tope. */
 export const ESCENARIO = {
     persona: { nombre: "Lucía Ferreyra", email: "lucia@ejemplo.com", actividad: "Servicios" },
     hoy: "2026-10-09",
@@ -64,3 +64,17 @@ export const fecha = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateSt
 
 export const categoriaPara = (ingresos: number): Categoria | null => ESCALAS.find((c) => ingresos <= c.tope) ?? null;
 export const categoria = (letra: string) => ESCALAS.find((c) => c.letra === letra)!;
+
+/*
+ * Casos de uso (?escenario=). Los tres son la misma Lucía en la categoría D;
+ * cambia cuánto facturó. Se derivan del escenario base escalando los montos
+ * (redondeados a miles), así las dos versiones del A/B ven exactamente lo mismo.
+ */
+const FACTORES: Record<string, number> = { lejos: 0.55 / 0.92, limite: 1, pasada: 1.08 / 0.92 };
+
+export const escenarioPara = (id: string | null) => {
+    const clave = id && id in FACTORES ? id : "limite";
+    const f = FACTORES[clave];
+    const facturas = clave === "limite" ? ESCENARIO.facturas : ESCENARIO.facturas.map((x) => ({ ...x, monto: Math.round((x.monto * f) / 1000) * 1000 }));
+    return { ...ESCENARIO, id: clave, facturas };
+};

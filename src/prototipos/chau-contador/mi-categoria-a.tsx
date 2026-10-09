@@ -3,9 +3,10 @@ import { Badge } from "@/components/base/badges/badges";
 import { Button } from "@/components/base/buttons/button";
 import { MetricItem } from "@/ds-pendiente/metric-item";
 import { PageHeader } from "@/ds-pendiente/page-header";
+import { useParametro } from "@/prototipos/parametros";
 import { cx } from "@/utils/cx";
 import { MarcoChauContador, SeccionFacturas } from "./compartido";
-import { ESCALAS, ESCENARIO, categoria, fecha, pesos } from "./datos";
+import { ESCALAS, categoria, escenarioPara, fecha, pesos } from "./datos";
 
 /*
  * Chau Contador · Mi categoría · versión A (tabla de categorías).
@@ -17,6 +18,7 @@ import { ESCALAS, ESCENARIO, categoria, fecha, pesos } from "./datos";
 const RUTA = "/p/chau-contador-mi-categoria-a";
 
 export const MiCategoriaA = () => {
+    const ESCENARIO = escenarioPara(useParametro("escenario"));
     const facturado = ESCENARIO.facturas.reduce((s, f) => s + f.monto, 0);
     const actual = categoria(ESCENARIO.categoriaActual);
 

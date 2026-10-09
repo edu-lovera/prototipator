@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
-import { BarChartSquare02, Calculator, CalendarDate, HomeLine, LifeBuoy01, Receipt, Settings01, Users01 } from "@untitledui/icons";
+import { BarChartSquare02, Calculator, CalendarDate, Hand, HomeLine, LifeBuoy01, Receipt, Settings01, Users01 } from "@untitledui/icons";
 import { SidebarNavigationSimple } from "@/components/application/app-navigation/sidebar-navigation/sidebar-simple";
 import { Table, TableCard } from "@/components/application/table/table";
 import { Badge } from "@/components/base/badges/badges";
+import { useParametro } from "@/prototipos/parametros";
 import { InvoiceRow } from "./componentes/invoice-row";
-import { ESCENARIO, fecha, pesos } from "./datos";
+import { ESCENARIO, escenarioPara, fecha, pesos } from "./datos";
 
 /*
  * Chau Contador · piezas compartidas por las versiones de un mismo prototipo:
@@ -12,10 +13,11 @@ import { ESCENARIO, fecha, pesos } from "./datos";
  * Lo que cambia entre la versión A y la B queda en cada pantalla.
  */
 
+/** Logo provisorio: una mano que saluda ("chau"), con el ícono Hand de Untitled UI. */
 const Logo = () => (
     <span className="flex items-center gap-2">
         <span className="flex size-7 items-center justify-center rounded-lg bg-brand-solid">
-            <Receipt className="size-4 text-white" />
+            <Hand className="size-4 -rotate-12 text-white" aria-hidden />
         </span>
         <span className="font-display text-md font-semibold text-primary">Chau Contador</span>
     </span>
@@ -67,7 +69,7 @@ export const MarcoChauContador = ({ ruta, children }: { ruta: string; children: 
 
 /** Facturas de los últimos 12 meses: tabla en escritorio, lista en teléfono. */
 export const SeccionFacturas = () => {
-    const facturas = ESCENARIO.facturas;
+    const facturas = escenarioPara(useParametro("escenario")).facturas;
     const total = facturas.reduce((s, f) => s + f.monto, 0);
     const visibles = facturas.slice(0, 6);
     return (

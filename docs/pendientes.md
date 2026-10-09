@@ -20,7 +20,12 @@
 ## Chau Contador
 
 - Versión A en Figma (en código está desde el 09/10). · Claude
-- Escenarios "lejos del tope" (55 %) y "pasada" (108 %) además de "al límite" (92 %). · Claude
-- Logo provisorio en Figma (en código hay uno de texto). · Edu + Claude
+- Logo provisorio (mano que saluda) también en Figma: hoy el menú de Figma muestra el de Untitled. · Claude
 - Capa de pruebas con la barra móvil acordada el 09/10 (plegada muestra tarea, Listo y No pude; No pude confirma; Listo se puede deshacer unos segundos) y registro del dispositivo. · Claude
 - Pasar a Figma de Ready lo que falta del contraste: sacar las sombras internas del botón secundario, separar borde de tarjeta y de divisor. · Edu + Claude
+
+## Galería
+
+- Modo prueba (`/t/<id>`) junto con la capa de pruebas. · Claude
+- Buscador y filtro por estado, cuando haya más de un puñado de prototipos. · Claude
+- Miniaturas de las tarjetas. · Claude
