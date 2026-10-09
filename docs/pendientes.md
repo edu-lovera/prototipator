@@ -16,3 +16,11 @@
 - Revisar Boceto y la sección "Contenido visual" de Fundamentos en el navegador, en claro y oscuro. · Edu
 - Ancla en oscuro: el botón principal (azul profundo sobre casi negro) tiene poco contraste, en código y en Figma. Decidir si en oscuro usa un paso más claro. · Edu
 - Botones de Brío: el brillo interno tiene un radio fijo de 7 px que no acompaña los bordes redondeados. · Claude
+
+## Chau Contador
+
+- Versión A (tabla de categorías como la muestra ARCA), en Figma y en código. · Claude
+- Escenarios "lejos del tope" (55 %) y "pasada" (108 %) además de "al límite" (92 %). · Claude
+- Logo provisorio en Figma (en código hay uno de texto). · Edu + Claude
+- Capa de pruebas con la barra móvil acordada el 09/10 (plegada muestra tarea, Listo y No pude; No pude confirma; Listo se puede deshacer unos segundos) y registro del dispositivo. · Claude
+- Pasar a Figma de Ready lo que falta del contraste: sacar las sombras internas del botón secundario, separar borde de tarjeta y de divisor. · Edu + Claude

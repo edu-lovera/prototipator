@@ -1,0 +1,20 @@
+/*
+ * Ajustes de contraste de Ready sobre la capa Mapped de Untitled UI.
+ * theme.css no se toca: estos valores la pisan, igual que en la biblioteca de Figma.
+ * Decidido el 09/10/2026 (bordes y textos de apoyo con poco contraste, sobre todo en oscuro).
+ */
+
+:root {
+    /* Bordes de controles: campos, botones secundarios, selectores */
+    --color-border-primary: var(--color-neutral-400);
+}
+
+:root.dark-mode,
+.dark-mode {
+    --color-border-primary: var(--color-neutral-500);
+    --color-border-secondary: var(--color-neutral-600);
+    --color-border-tertiary: var(--color-neutral-700);
+    --color-text-secondary: var(--color-neutral-200);
+    --color-text-tertiary: var(--color-neutral-300);
+    --color-fg-quaternary: var(--color-neutral-400);
+}

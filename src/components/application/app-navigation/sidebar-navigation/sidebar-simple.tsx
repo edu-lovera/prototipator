@@ -26,6 +26,10 @@ interface SidebarNavigationProps {
     className?: string;
     /** Whether to round the account card avatar. */
     avatarRounded?: boolean;
+    /** Ready: logo del producto. Si no se pasa, va el de Untitled UI. */
+    logo?: ReactNode;
+    /** Ready: texto del buscador. */
+    searchPlaceholder?: string;
 }
 
 export const SidebarNavigationSimple = ({
@@ -36,6 +40,8 @@ export const SidebarNavigationSimple = ({
     showAccountCard = true,
     hideBorder = false,
     className,
+    logo,
+    searchPlaceholder = "Search",
 }: SidebarNavigationProps) => {
     const MAIN_SIDEBAR_WIDTH = 280;
 
@@ -53,13 +59,13 @@ export const SidebarNavigationSimple = ({
             )}
         >
             <div className="flex flex-col gap-5 px-4 lg:px-5">
-                <UntitledLogo className="h-6" />
+                {logo ?? <UntitledLogo className="h-6" />}
 
                 {/* Mobile search input */}
-                <Input size="md" aria-label="Search" placeholder="Search" icon={SearchLg} className="md:hidden" />
+                <Input size="md" aria-label={searchPlaceholder} placeholder={searchPlaceholder} icon={SearchLg} className="md:hidden" />
 
                 {/* Desktop search input */}
-                <Input shortcut size="sm" aria-label="Search" placeholder="Search" icon={SearchLg} className="max-md:hidden" />
+                <Input shortcut size="sm" aria-label={searchPlaceholder} placeholder={searchPlaceholder} icon={SearchLg} className="max-md:hidden" />
             </div>
 
             <NavList activeUrl={activeUrl} items={items} />
@@ -87,7 +93,7 @@ export const SidebarNavigationSimple = ({
     return (
         <>
             {/* Mobile header navigation */}
-            <MobileNavigationHeader>{content}</MobileNavigationHeader>
+            <MobileNavigationHeader logo={logo}>{content}</MobileNavigationHeader>
 
             {/* Desktop sidebar navigation */}
             <div className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:flex">{content}</div>

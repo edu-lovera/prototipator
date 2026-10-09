@@ -38,4 +38,15 @@ export const ESTADOS: Record<Estado, { nombre: string; color: "gray" | "brand" |
     validado: { nombre: "Validado", color: "success" },
 };
 
-export const PROTOTIPOS: Prototipo[] = [];
+export const PROTOTIPOS: Prototipo[] = [
+    {
+        id: "chau-contador-mi-categoria",
+        nombre: "Chau Contador · Mi categoría",
+        descripcion: "Monotributo: cuánto te queda en tu categoría y qué pasa si facturás más. Barra de margen y simulador (versión B).",
+        origen: "pregunta",
+        estado: "borrador",
+        version: "0.1.0",
+        actualizado: "2026-10-09",
+        figma: "https://www.figma.com/design/ViNzzQOTZMFqYHyWZbDbE0?node-id=4-47299",
+    },
+];

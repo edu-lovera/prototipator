@@ -51,3 +51,8 @@ En Untitled UI, `bg` es lo que antes se llamaba surface y `fg` lo que se llamaba
 ## Buzón de piezas pendientes
 
 - `ContenidoVisual` e `Imagen` (`src/ds-pendiente/contenido-visual.tsx`): envuelven fotos, ilustraciones y gráficos; en Boceto muestran un recuadro con cruz y etiqueta. No existe en Figma: falta crearla ahí. (08/10)
+- `Alert`, `MetricItem`, `PageHeader` (`src/ds-pendiente/`): existen en Figma (Untitled PRO) y no en el código gratis. Versión mínima con tokens. (09/10)
+
+## Ajustes de contraste
+
+`src/styles/ajustes-ready.css` pisa algunos tokens de la capa Mapped (bordes, textos de apoyo, íconos apagados) con los mismos valores que la biblioteca de Figma. Ver decisiones del 09/10.

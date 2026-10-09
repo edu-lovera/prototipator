@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from "react";
+import type { PropsWithChildren, ReactNode } from "react";
 import { X as CloseIcon, Menu02 } from "@untitledui/icons";
 import {
     Button as AriaButton,
@@ -10,11 +10,12 @@ import {
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { cx } from "@/utils/cx";
 
-export const MobileNavigationHeader = ({ children }: PropsWithChildren) => {
+/** Ready: `logo` permite usar la marca del producto en vez del logo de Untitled UI. */
+export const MobileNavigationHeader = ({ children, logo }: PropsWithChildren<{ logo?: ReactNode }>) => {
     return (
         <AriaDialogTrigger>
             <header className="flex h-14 items-center justify-between border-b border-secondary bg-primary p-3 pl-4 lg:hidden">
-                <UntitledLogo className="h-6" />
+                {logo ?? <UntitledLogo className="h-6" />}
 
                 <AriaButton
                     aria-label="Expand navigation menu"
